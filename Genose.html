@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genose T1 Vorbestellung</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; background-color: #eafbea; color: #2d572c; }
+        #preorder-form { display: none; margin-top: 20px; padding: 20px; border: 2px solid #2d572c; border-radius: 10px; background-color: #ffffff; width: 50%; margin-left: auto; margin-right: auto; }
+        input, select, button { margin: 10px; padding: 10px; width: 80%; max-width: 400px; border: 1px solid #2d572c; border-radius: 5px; }
+        button { background-color: #4CAF50; color: white; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .price { font-size: 1.5em; font-weight: bold; margin: 20px 0; }
+        .confirmation { display: none; margin-top: 20px; padding: 20px; border: 2px solid #2d572c; border-radius: 10px; background-color: #ffffff; width: 50%; margin-left: auto; margin-right: auto; }
+        img { max-width: 100%; height: auto; margin-top: 20px; }
+    </style>
+    <script>
+        function showForm() {
+            document.getElementById('preorder-form').style.display = 'block';
+        }
+        function submitForm(event) {
+            event.preventDefault();
+            document.getElementById('preorder-form').style.display = 'none';
+            document.getElementById('confirmation').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Genose T1 jetzt vorbestellen</h1>
+    <img src="genose_t1.png" alt="Genose T1">
+    <p class="price">Preis: 499€</p>
+    <button onclick="showForm()">Jetzt vorbestellen</button>
+    
+    <form id="preorder-form" onsubmit="submitForm(event)">
+        <input type="text" placeholder="Name" required><br>
+        <input type="email" placeholder="E-Mail" required><br>
+        <input type="text" placeholder="Adresse" required><br>
+        <select required>
+            <option value="">Bezahlungsart wählen</option>
+            <option value="Kreditkarte">Kreditkarte</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Überweisung">Überweisung</option>
+        </select><br>
+        <button type="submit">Vorbestellung absenden</button>
+    </form>
+    
+    <div id="confirmation" class="confirmation">
+        <h2>Vielen Dank für Ihre Vorbestellung!</h2>
+        <p>Sie erhalten eine Nachricht, sobald das Produkt versendet wird.</p>
+    </div>
+</body>
+</html>

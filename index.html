@@ -5,17 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genose T1 Vorbestellung</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; background-color: #eafbea; color: #2d572c; display: flex; justify-content: space-between; align-items: center; }
-        #preorder-form { display: none; margin-top: 20px; padding: 20px; border: 2px solid #2d572c; border-radius: 10px; background-color: #ffffff; width: 50%; margin-left: auto; margin-right: auto; }
-        input, select, button { margin: 10px; padding: 10px; width: 80%; max-width: 400px; border: 1px solid #2d572c; border-radius: 5px; }
-        button { background-color: #4CAF50; color: white; cursor: pointer; }
-        button:hover { background-color: #45a049; }
-        .price { font-size: 1.5em; font-weight: bold; margin: 20px 0; }
-        .confirmation { display: none; margin-top: 20px; padding: 20px; border: 2px solid #2d572c; border-radius: 10px; background-color: #ffffff; width: 50%; margin-left: auto; margin-right: auto; }
-        img { max-width: 100%; height: auto; margin-top: 20px; }
-        .download-container { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); padding: 20px; background-color: #ffffff; border: 2px solid #2d572c; border-radius: 10px; }
-        .download-link { text-decoration: none; background-color: #4CAF50; color: white; padding: 10px 20px; font-size: 16px; border-radius: 5px; transition: background-color 0.3s; }
-        .download-link:hover { background-color: #45a049; }
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 50px; 
+            background-color: #eafbea; 
+            color: #2d572c; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        
+        #preorder-form { 
+            display: none; 
+            margin-top: 20px; 
+            padding: 20px; 
+            border: 2px solid #2d572c; 
+            border-radius: 10px; 
+            background-color: #ffffff; 
+            width: 50%; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+        
+        input, select, button { 
+            margin: 10px; 
+            padding: 10px; 
+            width: 80%; 
+            max-width: 400px; 
+            border: 1px solid #2d572c; 
+            border-radius: 5px; 
+        }
+        
+        button { 
+            background-color: #4CAF50; 
+            color: white; 
+            cursor: pointer; 
+        }
+        
+        button:hover { 
+            background-color: #45a049; 
+        }
+        
+        .price { 
+            font-size: 1.5em; 
+            font-weight: bold; 
+            margin: 20px 0; 
+        }
+        
+        .confirmation { 
+            display: none; 
+            margin-top: 20px; 
+            padding: 20px; 
+            border: 2px solid #2d572c; 
+            border-radius: 10px; 
+            background-color: #ffffff; 
+            width: 50%; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+
+        /* Über uns Section */
+        #about-us {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #2d572c;
+            border-radius: 10px;
+            background-color: #ffffff;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            max-width: 900px;
+        }
+
+        #about-us h2 {
+            font-size: 2em;
+            color: #4CAF50;
+        }
+
+        #about-us p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Stil des Buttons */
+        .download-link {
+            font-size: 1.2em;
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #45a049;
+        }
+
+        /* Download Link immer auf der rechten Seite */
+        .download-container { 
+            position: fixed; 
+            top: 50%; 
+            right: 20px; 
+            transform: translateY(-50%); 
+            padding: 20px; 
+            background-color: #ffffff; 
+            border: 2px solid #2d572c; 
+            border-radius: 10px; 
+        }
     </style>
     <script>
         function showForm() {
@@ -25,6 +128,15 @@
             event.preventDefault();
             document.getElementById('preorder-form').style.display = 'none';
             document.getElementById('confirmation').style.display = 'block';
+        }
+
+        function toggleAboutUs() {
+            var aboutUsSection = document.getElementById('about-us');
+            if (aboutUsSection.style.display === 'none' || aboutUsSection.style.display === '') {
+                aboutUsSection.style.display = 'block';
+            } else {
+                aboutUsSection.style.display = 'none';
+            }
         }
     </script>
 </head>
@@ -51,6 +163,21 @@
         <div id="confirmation" class="confirmation">
             <h2>Vielen Dank für Ihre Vorbestellung!</h2>
             <p>Sie erhalten eine Nachricht, sobald das Produkt versendet wird.</p>
+        </div>
+        
+        <!-- Über uns Button -->
+        <button onclick="toggleAboutUs()">Über uns</button>
+
+        <!-- Über uns Text -->
+        <div id="about-us">
+            <h2>Über Genose und den Genose T1 – Das Automatische Gewächshaus</h2>
+            <p>Willkommen bei <strong>Genose</strong>, einem innovativen Unternehmen, das sich der Entwicklung von hochmodernen Lösungen für die Landwirtschaft und Gartenbauindustrie verschrieben hat. Unsere Vision ist es, die Zukunft der Nahrungsmittelproduktion zu revolutionieren, indem wir fortschrittliche Technologie mit nachhaltigen Anbaumethoden verbinden. Mit diesem Ziel vor Augen haben wir den <strong>Genose T1</strong>, unser automatisiertes Gewächshaus, entwickelt, das den Gartenbau auf das nächste Level hebt.</p>
+            <p>Der <strong>Genose T1</strong> ist ein Meisterwerk der Ingenieurskunst und stellt die perfekte Symbiose aus innovativer Technologie und traditioneller Gartenbaukunst dar. Dieses hochmoderne Gewächshaus nutzt fortschrittliche Sensoren, automatisierte Systeme und eine präzise Steuerungstechnik, um die perfekten Wachstumsbedingungen für Ihre Pflanzen zu schaffen – ohne dass ständige manuelle Eingriffe erforderlich sind.</p>
+            <p>Dank seiner intelligenten Technologie kann der <strong>Genose T1</strong> Temperatur, Luftfeuchtigkeit, Lichtverhältnisse und andere Umweltfaktoren in Echtzeit überwachen und anpassen. Das bedeutet, dass Ihre Pflanzen stets in den idealen Bedingungen gedeihen, was zu einem höheren Ertrag und einer besseren Qualität führt. Unsere Automatisierung sorgt dafür, dass Sie sich auf das Wachstum Ihrer Pflanzen konzentrieren können, während der <strong>Genose T1</strong> die Arbeit übernimmt.</p>
+            <p>Der <strong>Genose T1</strong> wurde von einem Team aus führenden Ingenieuren und Technikern entwickelt, die mit jahrelanger Erfahrung in der Entwicklung von Agrartechnologien ausgestattet sind. Jeder Bestandteil dieses Gewächshauses wurde mit größter Präzision und höchster Qualität gefertigt. Von der hochmodernen Sensortechnologie bis hin zu den robusten Materialien, die den <strong>Genose T1</strong> zu einem langlebigen und zuverlässigen System machen – alles wurde sorgfältig konzipiert, um Ihre Erwartungen an Leistung und Langlebigkeit zu übertreffen.</p>
+            <p>Mit einem klaren Fokus auf Nachhaltigkeit setzt der <strong>Genose T1</strong> neue Maßstäbe in der Umweltfreundlichkeit. Durch den Einsatz von energieeffizienten Systemen und ressourcenschonender Technologie trägt der <strong>Genose T1</strong> dazu bei, den ökologischen Fußabdruck zu minimieren, während er gleichzeitig maximale Effizienz bietet.</p>
+            <p>Der <strong>Genose T1</strong> ist mehr als nur ein Gewächshaus. Es ist eine intelligente Lösung, die den Gartenbau revolutioniert. Mit seiner benutzerfreundlichen Schnittstelle können Sie das System jederzeit überwachen und anpassen, egal ob Sie zu Hause oder unterwegs sind. Darüber hinaus ist der <strong>Genose T1</strong> modular aufgebaut, sodass er an Ihre spezifischen Bedürfnisse angepasst werden kann – ob für den privaten Garten oder den professionellen landwirtschaftlichen Betrieb.</p>
+            <p>Erleben Sie, wie der <strong>Genose T1</strong> Ihre Anbauflächen optimiert und Ihre Pflanzen gedeihen lässt – ganz ohne aufwendige manuelle Arbeit. Steigen Sie jetzt ein in die Zukunft des Gartenbaus mit Genose!</p>
         </div>
     </div>
 

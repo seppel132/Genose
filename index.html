@@ -6,53 +6,65 @@
     <title>Genose T1 Vorbestellung</title>
     <style>
         body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            margin: 50px; 
-            background-color: #eafbea; 
-            color: #2d572c; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f5f5f5; 
+            color: #333; 
             display: flex; 
-            justify-content: space-between; 
-            align-items: center;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+            flex-direction: column;
         }
         
+        h1 {
+            font-size: 2.5em;
+            color: #2d572c;
+            margin: 20px;
+        }
+
         #preorder-form { 
             display: none; 
             margin-top: 20px; 
-            padding: 20px; 
-            border: 2px solid #2d572c; 
+            padding: 30px; 
+            border: 2px solid #4CAF50; 
             border-radius: 10px; 
             background-color: #ffffff; 
-            width: 50%; 
-            margin-left: auto; 
-            margin-right: auto; 
+            width: 60%; 
+            max-width: 400px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
         
         input, select, button { 
-            margin: 10px; 
-            padding: 10px; 
-            width: 80%; 
-            max-width: 400px; 
-            border: 1px solid #2d572c; 
+            margin: 10px 0; 
+            padding: 12px; 
+            width: 100%; 
+            border: 1px solid #4CAF50; 
             border-radius: 5px; 
+            font-size: 1em;
         }
-        
+
         button { 
             background-color: #4CAF50; 
             color: white; 
             cursor: pointer; 
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         
         button:hover { 
             background-color: #45a049; 
+            transform: scale(1.05);
         }
         
         .price { 
-            font-size: 1.5em; 
+            font-size: 1.8em; 
             font-weight: bold; 
+            color: #4CAF50; 
             margin: 20px 0; 
         }
-        
+
         .confirmation { 
             display: none; 
             margin-top: 20px; 
@@ -60,52 +72,52 @@
             border: 2px solid #2d572c; 
             border-radius: 10px; 
             background-color: #ffffff; 
-            width: 50%; 
-            margin-left: auto; 
-            margin-right: auto; 
+            width: 60%; 
+            max-width: 400px;
+            text-align: center;
         }
 
         /* Über uns Section */
         #about-us {
             display: none;
-            margin-top: 30px;
-            padding: 20px;
-            border: 2px solid #2d572c;
+            margin-top: 40px;
+            padding: 30px;
+            border: 2px solid #4CAF50;
             border-radius: 10px;
             background-color: #ffffff;
             width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
             max-width: 900px;
+            text-align: left;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         #about-us h2 {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #4CAF50;
+            margin-bottom: 20px;
         }
 
         #about-us p {
-            font-size: 1.2em;
-            line-height: 1.6;
+            font-size: 1.1em;
+            line-height: 1.8;
             color: #333;
+            margin-bottom: 20px;
         }
 
         /* Stil des Buttons */
         .download-link {
             font-size: 1.2em;
-            margin-top: 30px;
-            display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background-color: #4CAF50;
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .download-link:hover {
             background-color: #45a049;
+            transform: translateY(-2px);
         }
 
         /* Download Link immer auf der rechten Seite */
@@ -116,8 +128,23 @@
             transform: translateY(-50%); 
             padding: 20px; 
             background-color: #ffffff; 
-            border: 2px solid #2d572c; 
+            border: 2px solid #4CAF50; 
             border-radius: 10px; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-container a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Container für den Inhalt */
+        .content-container {
+            text-align: center;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
         }
     </style>
     <script>
@@ -141,9 +168,9 @@
     </script>
 </head>
 <body>
-    <div style="flex-grow: 1; text-align: center;">
+    <div class="content-container">
         <h1>Genose T1 jetzt vorbestellen</h1>
-        <img src="genose_t1.png" alt="Genose T1">
+        <img src="genose_t1.png" alt="Genose T1" style="max-width: 100%; height: auto; margin-bottom: 20px;">
         <p class="price">Preis: 499€</p>
         <button onclick="showForm()">Jetzt vorbestellen</button>
 
@@ -164,7 +191,7 @@
             <h2>Vielen Dank für Ihre Vorbestellung!</h2>
             <p>Sie erhalten eine Nachricht, sobald das Produkt versendet wird.</p>
         </div>
-        
+
         <!-- Über uns Button -->
         <button onclick="toggleAboutUs()">Über uns</button>
 
@@ -183,7 +210,7 @@
 
     <!-- Download-Link immer auf der rechten Seite -->
     <div class="download-container">
-       <a href="https://fileport.io/6AbnvULWJW2U" class="download-link" download="Zusammenbau_Gewächshaus.stp">Download CAD Modell</a>
+       <a href="https://fileport.io/6AbnvULWJW2U" class="download-link" target="_blank">Download CAD Modell</a>
     </div>
 </body>
 </html>
